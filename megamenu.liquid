@@ -1,0 +1,593 @@
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<header class=" sticky-top bg-white"  >
+ 
+
+<!-- ============= COMPONENT ============== -->
+<nav class="navbar navbar-expand-md navbar-light  ">
+ <div class="container-fluid p-0">
+  <a class="navbar-brand d-none" href="#">Brand</a>
+<!--   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <div class="collapse navbar-collapse border-bottom-top" id="main_nav">
+	<ul class="navbar-nav m-auto"> 
+		<!-- -------- menu item -------- -->
+		<li class="nav-item dropdown has-megamenu">
+			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Products </a>
+			<div class="dropdown-menu megamenu" role="menu">
+				<div class="row g-3">
+					<div class="col-lg-3 col-md-3 col-sm-6 border-right">
+						<h6 class="collectiontitle">Toolbox Widgets </h6> 
+                      
+                      
+						<ul class="list-unstyled collectionList nav flex-column nav-pills  " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                          <li>
+                             <a class="nav-link  " href="/collections/all" aria-current="page">
+                          All products
+                        </a>
+                          </li>
+                          <li>
+                            <button 
+                                    class="nav-link active" 
+                                    id="wrench_organizers-tab" 
+                                    data-bs-toggle="pill" 
+                                    data-bs-target="#wrench_organizers" 
+                                    type="button" role="tab" 
+                                    aria-controls="wrench_organizers" 
+                                    aria-selected="true">
+                              Wrench Organizers
+                            </button>
+                          </li>
+                          <li>
+                            <button 
+                                    class="nav-link" 
+                                    id="screwdriver_organizers-tab" 
+                                    data-bs-toggle="pill" 
+                                    data-bs-target="#screwdriver_organizers" 
+                                    type="button" role="tab" 
+                                    aria-controls="screwdriver_organizers" 
+                                    aria-selected="false">
+                              Screwdriver Organizers
+                            </button>
+                          </li>
+                          <li>
+                            <button 
+                                    class="nav-link" 
+                                    id="plier_organizers-tab" 
+                                    data-bs-toggle="pill" 
+                                    data-bs-target="#plier_organizers" 
+                                    type="button" role="tab" 
+                                    aria-controls="plier_organizers" 
+                                    aria-selected="false">
+                             Plier Organizers
+
+                            </button>
+                          </li> 
+							 
+  							<li>
+                              <strong>Socket Organizers</strong>
+                          </li>
+                               
+                                	<li>
+                                  		<button 
+                                              class="nav-link pl-2" 
+                                              id="drive1_4__socket_organizers-tab" 
+                                              data-bs-toggle="pill" 
+                                              data-bs-target="#drive1_4__socket_organizers" 
+                                              type="button" role="tab" 
+                                              aria-controls="drive1_4__socket_organizers" 
+                                              aria-selected="false">
+                                        1/4" Drive Socket Organizers
+                                      </button>
+                                  	</li>
+                                	<li>
+                                  		<button 
+                                              class="nav-link pl-2" 
+                                              id="drive1_2__socket_organizers-tab" 
+                                              data-bs-toggle="pill" 
+                                              data-bs-target="#drive1_2__socket_organizers" 
+                                              type="button" role="tab" 
+                                              aria-controls="drive1_2__socket_organizers" 
+                                              aria-selected="false">
+                                        1/2" Drive Socket Organizers
+                                      </button>
+                                  	</li> 
+                                	<li>
+                                  		<button 
+                                              class="nav-link pl-2" 
+                                              id="drive3_8__socket_organizers-tab" 
+                                              data-bs-toggle="pill" 
+                                              data-bs-target="#drive3_8__socket_organizers" 
+                                              type="button" role="tab" 
+                                              aria-controls="drive3_8__socket_organizers" 
+                                              aria-selected="false">
+                                        3/8" Drive Socket Organizers
+                                      </button>
+                                  	</li> 
+                                	<li>
+                                  		<button 
+                                              class="nav-link" 
+                                              id="other_products-tab" 
+                                              data-bs-toggle="pill" 
+                                              data-bs-target="#other_products" 
+                                              type="button" role="tab" 
+                                              aria-controls="other_products" 
+                                              aria-selected="false">
+                                        Other Products
+                                      </button>
+                                  	</li>  
+                                
+							 
+
+
+						</ul>
+                      
+                     
+  
+                      
+					</div><!-- end col-3 -->
+					<div class="col-lg-9 col-md-9 col-sm-6"> 
+                      
+                         
+                      <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="wrench_organizers" role="tabpanel" aria-labelledby="wrench_organizers-tab"> 
+                      
+                          {% if collections.wrench-organizers.products.size > 0 %}    
+                              <h6 class="collectiontitle">Wrench Organizers</h6>
+                            <ul class="nav productCollectionList">  
+                                  {% for product in collections.wrench-organizers.products %} 
+                                    <li class="col-lg-3 col-md-6 col-sm-6 p-2"> 
+                                        <a class="shop-now" href="{{ product.url }}">
+                                           <div class="space">
+                                              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+                                              <h5>{{ product.title | escape  }}</h5> 
+                                          </div>
+                                          <div class="viewMore">View More</div>
+                                        </a> 
+                                    </li>   
+                                  {% endfor %}
+                            </ul> 
+                           {%  endif %}  
+                          </div>
+                        
+                        <div class="tab-pane fade" id="screwdriver_organizers" role="tabpanel" aria-labelledby="screwdriver_organizers-tab"> 
+                      
+                          {% if collections.screwdriver-organizers.products.size > 0 %}    
+                              <h6 class="collectiontitle">Screwdriver Organizers</h6>
+                            <ul class="nav productCollectionList">  
+                                  {% for product in collections.screwdriver-organizers.products %} 
+                                    <li class="col-lg-3 col-md-6 col-sm-6 p-2"> 
+                                        <a class="shop-now" href="{{ product.url }}">
+                                           <div class="space">
+                                              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+                                              <h5>{{ product.title | escape  }}</h5> 
+                                          </div>
+                                          <div class="viewMore">View More</div>
+                                        </a> 
+                                    </li>   
+                                  {% endfor %}
+                            </ul> 
+                           {%  endif %}  
+                          </div>
+                        
+                        <div class="tab-pane fade" id="plier_organizers" role="tabpanel" aria-labelledby="plier_organizers-tab">  
+                          {% if collections.plier-organizers.products.size > 0 %}    
+                              <h6 class="collectiontitle">Plier Organizers</h6>
+                            <ul class="nav productCollectionList">  
+                                  {% for product in collections.plier-organizers.products %} 
+                                    <li class="col-lg-3 col-md-6 col-sm-6 p-2"> 
+                                        <a class="shop-now" href="{{ product.url }}">
+                                           <div class="space">
+                                              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+                                              <h5>{{ product.title | escape  }}</h5> 
+                                          </div>
+                                          <div class="viewMore">View More</div>
+                                        </a> 
+                                    </li>   
+                                  {% endfor %}
+                            </ul> 
+                           {%  endif %}  
+                          </div>
+                        <div class="tab-pane fade" id="drive1_4__socket_organizers" role="tabpanel" aria-labelledby="drive1_4__socket_organizers-tab">  
+                          {% if collections.drive_1_4-socket-organizers.products.size > 0 %}    
+                              <h6 class="collectiontitle">1/4" Drive Socket Organizers</h6>
+                            <ul class="nav productCollectionList">  
+                                  {% for product in collections.drive_1_4-socket-organizers.products %} 
+                                    <li class="col-lg-3 col-md-6 col-sm-6 p-2"> 
+                                        <a class="shop-now" href="{{ product.url }}">
+                                           <div class="space">
+                                              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+                                              <h5>{{ product.title | escape  }}</h5> 
+                                          </div>
+                                          <div class="viewMore">View More</div>
+                                        </a> 
+                                    </li>   
+                                  {% endfor %}
+                            </ul> 
+                           {%  endif %}  
+                          </div>
+                        <div class="tab-pane fade" id="drive1_2__socket_organizers" role="tabpanel" aria-labelledby="drive1_2__socket_organizers-tab">  
+                          {% if collections.drive_1_2-socket-organizers.products.size > 0 %}    
+                              <h6 class="collectiontitle">1/2" Drive Socket Organizers</h6>
+                            <ul class="nav productCollectionList">  
+                                  {% for product in collections.drive_1_2-socket-organizers.products %} 
+                                    <li class="col-lg-3 col-md-6 col-sm-6 p-2"> 
+                                        <a class="shop-now" href="{{ product.url }}">
+                                           <div class="space">
+                                              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+                                              <h5>{{ product.title | escape  }}</h5> 
+                                          </div>
+                                          <div class="viewMore">View More</div>
+                                        </a> 
+                                    </li>   
+                                  {% endfor %}
+                            </ul> 
+                           {%  endif %}  
+                          </div>
+                        <div class="tab-pane fade" id="drive3_8__socket_organizers" role="tabpanel" aria-labelledby="drive3_8__socket_organizers-tab">  
+                          {% if collections.drive_3_8-socket-organizers.products.size > 0 %}    
+                              <h6 class="collectiontitle">3/8" Drive Socket Organizers</h6>
+                            <ul class="nav productCollectionList">  
+                                  {% for product in collections.drive_3_8-socket-organizers.products %} 
+                                    <li class="col-lg-3 col-md-6 col-sm-6 p-2"> 
+                                        <a class="shop-now" href="{{ product.url }}">
+                                           <div class="space">
+                                              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+                                              <h5>{{ product.title | escape  }}</h5> 
+                                          </div>
+                                          <div class="viewMore">View More</div>
+                                        </a> 
+                                    </li>   
+                                  {% endfor %}
+                            </ul> 
+                           {%  endif %}  
+                          </div>
+                        <div class="tab-pane fade" id="other_products" role="tabpanel" aria-labelledby="other_products-tab">  
+                          {% if collections.other-products.products.size > 0 %}    
+                              <h6 class="collectiontitle">Other Products</h6>
+                            <ul class="nav productCollectionList">  
+                                  {% for product in collections.other-products.products %} 
+                                    <li class="col-lg-3 col-md-6 col-sm-6 p-2"> 
+                                        <a class="shop-now" href="{{ product.url }}">
+                                           <div class="space">
+                                              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+                                              <h5>{{ product.title | escape  }}</h5> 
+                                          </div>
+                                          <div class="viewMore">View More</div>
+                                        </a> 
+                                    </li>   
+                                  {% endfor %}
+                            </ul> 
+                           {%  endif %}  
+                          </div>
+                        
+                        
+                      </div>
+                      
+					</div><!-- end col-3 -->
+				 
+				</div><!-- end row --> 
+			</div> <!-- dropdown-mega-menu.// -->
+		</li>
+      
+      
+		<li class="nav-item active"> <a class="nav-link" href="/pages/reviews">Reviews </a> </li> 
+		<!-- -------- menu item -------- -->
+		<li class="nav-item dropdown">
+			<a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Videos </a>
+		    <ul class="dropdown-menu"> 
+			  <li><a class="dropdown-item" href="/pages/all-videos">All videos </a></li>
+			  <li><a class="dropdown-item" href="/pages/submit-a-video">Submit a video </a></li>
+		    </ul>
+		</li>
+		<!-- -------- menu item end// -------- -->
+		<li class="nav-item dropdown">
+			<a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Social Media </a>
+		    <ul class="dropdown-menu"> 
+			  <li><a target="_blank" class="dropdown-item" href="https://www.instagram.com/toolbox_widget/?hl=en">Instagram</a></li> 
+			  <li><a target="_blank" class="dropdown-item" href="https://www.facebook.com/toolboxwidget/">Facebook</a></li> 
+			  <li><a target="_blank" class="dropdown-item" href="https://twitter.com/toolboxwidget?lang=en">Twitter</a></li> 
+			  <li><a target="_blank" class="dropdown-item" href="https://www.pinterest.com/ToolboxWidget/">Pinterest</a></li> 
+			  <li><a target="_blank" class="dropdown-item" href="https://www.youtube.com/channel/UCt8xLGr4OMJOmm-TVN9lZ6w">Youtube</a></li> 
+		    </ul>
+		</li>
+		<!-- -------- menu item end// -------- -->
+      
+      
+      
+      	<!-- -------- menu item -------- -->
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Support </a>
+			<div class="dropdown-menu dropdown-large" role="menu">
+				<div class="row g-3 justify-content-center">
+					<div class="col-lg-6 col-sm-6">
+						<h6 class="title">Support</h6>
+						<ul class="list-unstyled">
+							<li><a class="dropdown-item" href="/pages/contact-us">Contact Us</a></li>
+							<li><a class="dropdown-item" href="/pages/discount-request">Discount Request</a></li> 
+							<li><a class="dropdown-item" href="/pages/warranty">Warranty</a></li> 
+							<li><a class="dropdown-item" href="/pages/shipping-issues">Shipping Issues</a></li> 
+							<li><a class="dropdown-item" href="/pages/order-change">Order Change</a></li> 
+							<li><a class="dropdown-item" href="/pages/affiliate-dashboard">Affiliates</a></li> 
+						</ul>
+					</div><!-- end col-3 -->
+					<div class="col-lg-6 col-sm-6">
+						<h6 class="title">Title Menu Two</h6>
+						<ul class="list-unstyled">
+							<li><a class="dropdown-item" href="/pages/faq">Faq</a></li> 
+							<li><a class="dropdown-item" href="/pages/demo-subscribe">Subscribe</a></li> 
+							<li><a class="dropdown-item" href="/pages/deals">Current Deals</a></li> 
+							<li><a class="dropdown-item" href="/pages/contest">Contest Entry</a></li> 
+							<li><a class="dropdown-item" href="/pages/awards">Awards</a></li> 
+							<li><a class="dropdown-item" href="/pages/about-us">About Us</a></li> 
+						</ul>
+					</div><!-- end col-3 -->
+					 
+				</div><!-- end row --> 
+			</div> <!-- dropdown-mega-menu.// -->
+		</li>
+		<!-- -------- menu item end// -------- -->
+
+		<!-- -------- menu item end// -------- -->
+		<li class="nav-item dropdown">
+			<a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Partners</a>
+		    <ul class="dropdown-menu"> 
+			  <li><a target="_blank" class="dropdown-item" href="https://dragonfiretools.com/">Dragonfire Tools</a></li>  
+			  <li><a target="_blank" class="dropdown-item" href="https://www.grypmat.com/">Grypmat</a></li>  
+			  <li><a target="_blank" class="dropdown-item" href="https://www.valvomax.com/">Valvomax</a></li>  
+			  <li><a target="_blank" class="dropdown-item" href="https://ngrperformance.com/">NGR Performance</a></li>  
+			  <li><a target="_blank" class="dropdown-item" href="https://toolheadscrate.com/">ToolHeads Crate</a></li>  
+			  <li><a target="_blank" class="dropdown-item" href="http://buybatterybarracks.com/">Battery Barracks</a></li>  
+			  <li><a target="_blank" class="dropdown-item" href="https://tooldom.com/">Tool Dom</a></li>    
+		    </ul>
+		</li>
+	 
+
+		<li class="nav-item active"> <a class="nav-link" href="/pages/contest">Contest </a> </li>
+<!-- 		<li class="nav-item dropdown"> 
+          <a class="nav-link  dropdown-toggle" data-bs-toggle="dropdown" href="/pages/contest">Contest </a> 
+          <ul class="dropdown-menu"> 
+			  <li><a class="dropdown-item" href="/pages/distributor_registration">Distributor Registration </a></li> 
+			  <li><a class="dropdown-item" href="/pages/po-submit">P.O. Submission</a></li>
+			  <li><a class="dropdown-item" href="/pages/sample-request">Sample Request</a></li>
+			  <li><a class="dropdown-item" href="/pages/catalog">Catalog</a></li>
+		   </ul>
+      </li> 
+	 
+ -->
+		 
+
+
+
+	</ul> <!-- navbar-nav end//  -->
+
+	
+ 
+
+  </div> <!-- navbar-collapse.// -->
+ </div> <!-- container-fluid.// -->
+</nav>
+<!-- ============= COMPONENT END// ============== -->
+
+ 
+</header> <!-- section-header.// -->
+
+
+
+
+<style type="text/css">
+  
+  @charset "UTF-8";.dropdown:hover{z-index:45}.navbar:hover{z-index:40}.offcanvas-end,.offcanvas-start{max-width:80%}.fixed-onscroll.fixed-top{top:-60px;transform:translateY(60px);transition:transform 0.3s}.autohide{position:fixed;top:0;right:0;left:0;width:100%;z-index:1030}.autohide.scrolled-down{transform:translateY(-100%);transition:all 0.3s ease-in-out}.autohide.scrolled-up{transform:translateY(0);transition:all 0.3s ease-in-out}.dropdown .dropdown-menu,.navbar .dropdown-menu{margin-top:0;box-shadow:0 2px 4px rgba(34,34,34,0.15)}.dropdown .dropdown-menu-end,.navbar .dropdown-menu-end{right:0;left:auto}.dropdown .megasubmenu,.navbar .megasubmenu{padding:1rem}.dropdown .dropdown-large,.navbar .dropdown-large{padding:1rem}.dropdown .megamenu,.navbar .megamenu{padding:1rem}.dropdown .has-megamenu,.navbar .has-megamenu{position:static!important}.icon-arrow:after{content:"❯";font-style:normal;line-height:1;display:inline-block;vertical-align:middle;margin-left:7px;margin-top:-2px;opacity:0.3;font-size:80%}.screen-darken{display:block;height:100%;width:0%;z-index:20;position:fixed;top:0;right:0;opacity:0;visibility:hidden;background-color:rgba(34,34,34,0.6);transition:opacity 0.2s linear,visibility 0.2s,width 2s ease-in}.screen-darken.active{z-index:25;transition:opacity 0.3s ease,width 0s;opacity:1;width:100%;visibility:visible}@media (min-width:992px){.navbar{padding:0}.navbar .nav-link{padding-top:1rem;padding-bottom:1rem;padding-left:0.7rem!important;padding-right:0.7rem!important}.navbar-dark .nav-link.show{background:rgba(255,255,255,0.12)}.navbar-light .nav-link.show{background:rgba(0,0,0,0.12)}.navbar-nav{align-items:center}.dropdown-menu li{position:relative}.dropdown-menu .submenu{display:none;position:absolute;left:100%;top:-7px}.dropdown-menu .submenu-left{right:100%;left:auto}.dropdown-menu>li:hover{background-color:#f1f1f1}.dropdown-menu>li:hover>.submenu{display:block}.megasubmenu{left:100%;top:0;min-height:100%;min-width:500px}.dropdown-menu-end .megasubmenu{left:auto;right:100%;top:0}.dropdown-menu>li:hover .megasubmenu{display:block}.dropdown-large{min-width:520px}.megamenu{left:0;right:0;width:100%}.nav-item.hover .dropdown-menu.animate{display:block;opacity:0;visibility:hidden;margin-top:0}.nav-item.hover .animate.fade-down{top:90%;transform:rotateX(-80deg);transform-origin:0% 0%}.nav-item.hover .animate.fade-up{top:90px}.nav-item.hover .dropdown-menu .animate.fade-down{top:0}.nav-item.hover .animate.dropdown-menu.show{display:block;transition:0.4s;opacity:1;visibility:visible;top:100%;transform:rotateX(0deg)}.nav-item.hover .animate.dropdown-menu>li:hover>.megasubmenu,.nav-item.hover .animate.dropdown-menu>li:hover>.submenu{display:block;transition:0.4s;opacity:1;visibility:visible;top:0;transform:rotateX(0deg)}.dropdown-menu li{position:relative}.dropdown-menu li.has-megasubmenu{position:static!important}.dropdown-menu li:hover>.dropdown-menu,.dropdown-menu li:hover>.submenu{display:block;transition:0.4s;opacity:1;visibility:visible;top:0%;transform:rotateX(0deg)}.dropdown-menu li:hover>.megasubmenu{display:block;transition:0.4s;opacity:1;visibility:visible;top:0%;transform:rotateX(0deg)}}@media (max-width:991px){.dropdown-menu .dropdown-menu{margin-left:0.7rem;margin-right:0.7rem;margin-bottom:0.5rem}}.navbar-styled{background-color:#ffca2a;box-shadow:0 2px 3px rgba(100,100,100,0.1);font-size:14px}.navbar-styled .navbar-toggler{color:rgba(0,0,0,0.5);border-color:rgba(0,0,0,0.1)}.navbar-styled .navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")}.navbar-styled .navbar-brand{font-weight:600;font-size:18px}.navbar-styled .navbar-nav .nav-link{font-weight:600;text-transform:uppercase;color:#333;border:2px solid transparent}.navbar-styled .navbar-nav .nav-item.show .nav-link,.navbar-styled .navbar-nav .nav-item:hover .nav-link{border-bottom:2px solid orange;color:#111}.navbar-styled .dropdown-menu{border:0;background-clip:initial;border-radius:0;box-shadow:0 1px 5px rgba(70,70,70,0.2)}.navbar-styled .dropdown-menu .dropdown-item{padding:0.6rem 1.5rem;border-bottom:1px solid #f1f1f1}
+/*# sourceMappingURL=menukit.css.map */
+ 
+  .border-bottom-top{
+  
+    border-top: #333 1px solid;
+    border-bottom: #333 1px solid;
+    
+    padding: 5px 0;
+  }
+  .navbar-toggler{
+      width: 30px;
+    height: 20px;
+    position: relative;
+    padding: 0;
+  }
+  .navbar-toggler:focus{
+    box-shadow: 0 0 0 0;
+  }
+  .navbar-toggler:hover .navbar-toggler-icon,
+  .navbar-toggler:hover .navbar-toggler-icon::after,
+  .navbar-toggler:hover .navbar-toggler-icon::before{
+  	background: #f15c22 ;
+  }
+  
+  .navbar-toggler-icon{
+    width: 100%;
+    height: 2px;
+    display: block;
+    background: #333;
+    transition: all 0.3s ease;
+  }
+  .navbar-toggler-icon::after{
+    content: "";
+    width: 100%;
+    height: 2px;
+    display: block;
+    background: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+  .navbar-toggler-icon::before{
+    content: "";
+    width: 100%;
+    height: 2px;
+    display: block;
+    background: #333;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+  .border-right{
+    border-right: 2px solid #00000014;
+  }
+  .navbar-light .nav-link.show {
+    background: rgb(0 0 0 / 0%);
+    color: #f15c22 !important;
+}
+  .dropdown-menu>li:hover {
+    background-color: #f1f1f100;
+  }
+  .dropdown-menu  .dropdown-item:focus,   .dropdown-menu .dropdown-item:hover {
+    color: #f15c22 !important; 
+    
+    background-color: #e9ecef00;
+}
+  .collectiontitle{
+       font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-left: 10px;
+    color: #f15c22;
+  }
+  .title{
+    
+       font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px; 
+    color: #333;
+  }
+  .productCollectionList{}
+  .productCollectionList li{}
+  .productCollectionList li a{
+  display: block;
+    /* border: 2px solid #e4e4e4; */
+    padding: 0;
+    box-shadow: 0 0 5px #0000001f;
+    border-radius: 5px;
+    
+    overflow: hidden;
+  }
+  .productCollectionList li a .space{
+  padding:10px;
+    text-align:center;
+  }
+  
+  .productCollectionList li a img{}
+  .productCollectionList li a h5{
+  font-weight: 600;
+    color: #333;
+    font-size: 18px;
+       margin-bottom: 0;
+    height: 45px;
+    margin-top: 5px;
+  }
+  .productCollectionList li a .viewMore{
+    background: #333;
+    padding: 8px 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+   color: #333;
+    font-size: 14px;
+    text-align: left;
+    text-transform: uppercase;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+  .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+     
+    background-color: #0d6efd00 !important;
+        color: #f15c22 !important;
+}
+  .tab-content .tab-pane ul {
+    
+    padding-top: 0 !important;
+     
+}
+.navbar .megamenu{ padding: 1rem; }
+  
+  
+  a:-webkit-any-link:focus-visible,a:focus,a:focus-visible, button:focus,button:focus-visible,a:active {
+    outline-offset: 0 !important;
+    outline: -webkit-focus-ring-color auto 0 !important;
+    box-shadow:0 0 0 0 transparent !important;
+}
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+	
+	.navbar .has-megamenu{position:static!important;}
+	.navbar .megamenu{left:0; right:0; width:100%; margin-top:0;  }
+	
+}	
+/* ============ desktop view .end// ============ */
+
+
+/* ============ mobile view ============ */
+@media(max-width: 991px){
+	.navbar.fixed-top .navbar-collapse, .navbar.sticky-top .navbar-collapse{
+		overflow-y: auto;
+	    max-height: 90vh;
+	    margin-top:10px;
+	}
+}
+/* ============ mobile view .end// ============ */
+  
+  @media(max-width: 767px){
+    .collectiontitle {
+    font-size: 20px; 
+    letter-spacing: 0;
+    padding-left: 0;  
+    margin-bottom: 0;
+}
+    .productCollectionList { 
+    justify-content: center;
+}
+    .sticky-top {
+    position: -webkit-static;
+    position: static; 
+}
+  .navbar {
+     
+    padding-top: 0;
+    padding-bottom: 0;
+}
+    .dropdown .dropdown-menu, .navbar .dropdown-menu {
+    
+    border: 0px solid rgba(0,0,0,0);
+    box-shadow: 0 0px 0px rgb(34 34 34 / 0%);
+}
+  }
+</style>
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(){
+        /////// Prevent closing from click inside dropdown
+        document.querySelectorAll('.dropdown-menu').forEach(function(element){
+        	element.addEventListener('click', function (e) {
+        		e.stopPropagation();
+        	});
+        })
+    }); 
+  
+  
+			 	$('.navbar .nav-item').addClass('hover');
+				$('.dropdown-menu').addClass('animate fade-up');
+		 
+
+   
+                    
+                      
+	// DOMContentLoaded  end
+</script>
